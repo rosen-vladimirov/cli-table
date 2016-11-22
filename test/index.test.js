@@ -31,13 +31,15 @@ module.exports = {
     );
 
     var expected = [
-        '┌──────┬─────────────────────┬─────────────────────────┬─────────────────┐'
-      , '│ Rel  │ Change              │ By                      │ When            │'
-      , '├──────┼─────────────────────┼─────────────────────────┼─────────────────┤'
-      , '│ v0.1 │ Testing something … │ rauchg@gmail.com        │ 7 minutes ago   │'
-      , '├──────┼─────────────────────┼─────────────────────────┼─────────────────┤'
-      , '│ v0.1 │ Testing something … │ rauchg@gmail.com        │ 8 minutes ago   │'
-      , '└──────┴─────────────────────┴─────────────────────────┴─────────────────┘'
+       '┌──────┬─────────────────────┬─────────────────────────┬─────────────────┐'
+     , '│ Rel  │ Change              │ By                      │ When            │'
+     , '├──────┼─────────────────────┼─────────────────────────┼─────────────────┤'
+     , '│ v0.1 │ Testing something   │ rauchg@gmail.com        │ 7 minutes ago   │'
+     , '│      │ cool                │                         │                 │'
+     , '├──────┼─────────────────────┼─────────────────────────┼─────────────────┤'
+     , '│ v0.1 │ Testing something   │ rauchg@gmail.com        │ 8 minutes ago   │'
+     , '│      │ cool                │                         │                 │'
+     , '└──────┴─────────────────────┴─────────────────────────┴─────────────────┘'
     ];
 
     table.toString().should.eql(expected.join("\n"));
@@ -267,35 +269,12 @@ module.exports = {
     );
 
     var expected = [
-        '┌──────┬───────────┬───┐'
-      , '│      │           │ 0 │'
-      , '└──────┴───────────┴───┘'
-    ];
-
-    table.toString().should.eql(expected.join("\n"));
-  },
-  
-  'test with Chinese characters': function(){
-    var table = new Table({
-      style: {
-          head: []
-        , border: []
-      }
-    });
-
-    table.push(
-        ['something', '中文', 0],
-        ['something else', '中文 + english', 1]
-    );
-
-    var expected = [
-        '┌────────────────┬────────────────┬───┐'
-      , '│ something      │ 中文           │ 0 │'
-      , '├────────────────┼────────────────┼───┤'
-      , '│ something else │ 中文 + english │ 1 │'
-      , '└────────────────┴────────────────┴───┘'
+        '┌──┬──┬───┐'
+      , '│  │  │ 0 │'
+      , '└──┴──┴───┘'
     ];
 
     table.toString().should.eql(expected.join("\n"));
   }
+  
 };
